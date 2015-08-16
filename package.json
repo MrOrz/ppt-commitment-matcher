@@ -1,0 +1,17 @@
+{
+  "name": "taoyuan-history",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "feat": "babel-node --stage 1 csv2feat.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "csv": "^0.4.6",
+    "wordfreq": "0.1.0-dev"
+  }
+}
