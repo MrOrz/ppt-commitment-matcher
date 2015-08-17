@@ -14,10 +14,15 @@ var inName = process.argv[2];
 csv.parse(fs.readFileSync(inName, {encoding: 'utf-8'}), (err, rows) => {
   var processedRows = rows.map(row => {
     var content = row.slice(0, 6).concat(row[9]).join(' '),
-        ngram = WordFreq(wordfreqOption).process(content);
+        ngramArr = WordFreq(wordfreqOption).process(content),
+        ngram = {};
+
+    ngramArr.forEach(gram => {ngram[gram[0]] = +gram[1];});
 
     return {
       id: `${row[6]}(${parseFloat(row[7]).toFixed(0)},${parseFloat(row[7]).toFixed(0)})`,
+      length: Math.sqrt(ngramArr.reduce((sum, gram) => sum + gram[1]*gram[1], 0)),
+      count: ngramArr.length,
       content, ngram
     };
   });
