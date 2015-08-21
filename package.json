@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "feat": "babel-node --stage 1 csv2feat.js",
+    "cross": "babel-node --stage 1 crosssim.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
